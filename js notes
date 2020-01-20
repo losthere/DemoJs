@@ -1,0 +1,96 @@
+JavaScript-provided and executed as plain script-no need of special environemnt.has its own specification called ECMAScript.
+
+JS can be exceuted on browsers or browsers or anything that has JS engines.
+Browsers have embedded engines called Javascript virtual machine.
+Different engines have different code names.(V8 for chrome,Chakra for IE)
+
+Capability of JS
+---------------------------
+JavaScript’s capabilities greatly depend on the environment it’s running in. 
+For instance, Node.js supports functions that allow JavaScript to read/write arbitrary files, perform network requests, etc.
+
+In-browser JavaScript can do everything related to webpage manipulation, interaction with the user, and the webserver.
+
+For instance, in-browser JavaScript is able to:
+
+Send requests over the network to remote servers, download and upload files (so-called AJAX and COMET technologies).
+Get and set cookies, ask questions to the visitor, show messages.
+Remember the data on the client-side (“local storage”).
+
+Limits of JS
+---------------------------
+Cannt access camera etc. Would require permission from user. Plugins are reuired to give such access which browsers restrict by default.
+
+Different tabs/windows generally do not know about each other.Sometimes they do, for example when one window uses JavaScript to open the other one. But even in this case, JavaScript from one page may not access the other if they come from different sites (from a different domain, protocol or port).
+
+This is called the “Same Origin Policy”. To work around that, both pages must agree for data exchange and contain a special JavaScript code that handles it.
+
+This limitation is, again, for the user’s safety. A page from http://anysite.com which a user has opened must not be able to access another browser tab with the URL http://gmail.com and steal information from there.
+
+--------------------------------------------------------------------------------------------------------------
+
+Note:
+
+1. <script type="text/javascript"> - this type attribute is not required anymore.
+
+2.for big javascript code, it is recommended to write it at the bottom below the </html>. Other wise if we write it inside html ot body tag it JS engine will read it line by line and it will take time to load the html template.
+
+-------------------------------------------------------------------------------------------------------------------
+
+As a rule, only the simplest scripts are put into HTML. More complex ones reside in separate files.
+
+The benefit of a separate file is that the browser will download it and store it in its cache.
+
+Other pages that reference the same script will take it from the cache instead of downloading it, so the file is actually downloaded only once.
+
+That reduces traffic and makes pages faster.
+
+-------------------------------------------------------------------------------------------------------------
+with ES5 or ECMAScript5, new features were introduced in JS along with modifying te existing one. 
+,the use of directive "use strict",the whole script works the “modern” way.
+
+As an example, in normal JavaScript, mistyping a variable name creates a new global variable. 
+In strict mode, this will throw an error, making it impossible to accidentally create a global variable.
+-------------------------------------------------------------------------------------------------------------
+let-modern way
+var-old way
+const-constant variable
+
+Data types in js(8)-undefine,null,number,bigint,string,boolean,object,symbol
+
+// no error
+let message = "hello";
+message = 123456;
+
+let n = 123;
+n = 12.345;
+
+alert( 1 / 0 ); // Infinity
+alert( "not a number" / 2 ); // NaN, such division is erron
+
+In JavaScript, the “number” type cannot represent integer values larger than (2)53 (or less than -(2)53 for negatives)
+So we use bigint
+
+// the "n" at the end means it's a BigInt
+const bigInt = 1234567890123456789012345678901234567890n;
+
+backticks
+// embed an expression
+alert( `the result is ${1 + 2}` ); // the result is 3
+typeof undefined // "undefined"
+
+typeof 0 // "number"
+
+typeof 10n // "bigint"
+
+typeof true // "boolean"
+
+typeof "foo" // "string"
+
+typeof Symbol("id") // "symbol"
+
+typeof Math // "object"  (1)
+
+typeof null // "object"  (2)
+
+typeof alert // "function"  (3)
